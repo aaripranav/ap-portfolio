@@ -5,12 +5,6 @@ import { TypingText } from "@/components/TypingText";
 import { PageShell } from "@/components/PageShell";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Aari Pranav — Cyber Defense Operator" },
-      { name: "description", content: "MSc Cyber Security student in London. Ethical hacker, security researcher and full-stack developer." },
-    ],
-  }),
   component: Home,
 });
 

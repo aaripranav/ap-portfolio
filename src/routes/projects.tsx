@@ -4,12 +4,6 @@ import type { MouseEvent } from "react";
 import { PageShell, SectionLabel } from "@/components/PageShell";
 
 export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects — Aari Pranav" },
-      { name: "description", content: "Cybersecurity research, simulations and tooling projects." },
-    ],
-  }),
   component: Projects,
 });
 

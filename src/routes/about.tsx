@@ -3,12 +3,6 @@ import { motion } from "framer-motion";
 import { PageShell, SectionLabel } from "@/components/PageShell";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Aari Pranav" },
-      { name: "description", content: "Cybersecurity postgraduate with hands-on networking and tooling experience." },
-    ],
-  }),
   component: About,
 });
 

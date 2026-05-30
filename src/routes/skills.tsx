@@ -8,12 +8,6 @@ import { PageShell, SectionLabel } from "@/components/PageShell";
 import { Shield, Scale, Briefcase, Search } from "lucide-react";
 
 export const Route = createFileRoute("/skills")({
-  head: () => ({
-    meta: [
-      { title: "Skills — Aari Pranav" },
-      { name: "description", content: "Strategic Governance & Risk and Operational & Project Execution pillars." },
-    ],
-  }),
   component: Skills,
 });
 

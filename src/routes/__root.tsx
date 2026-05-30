@@ -1,17 +1,14 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
   useLocation,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import appCss from "../styles.css?url";
 import { Nav } from "@/components/Nav";
 import { CyberCursor } from "@/components/CyberCursor";
 import { CyberParticles } from "@/components/CyberParticles";
@@ -53,46 +50,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aari Pranav — Cybersecurity Portfolio" },
-      { name: "description", content: "Cybersecurity postgraduate, ethical hacker and security researcher. Threat analysis, pentesting and AI-powered defense." },
-      { name: "theme-color", content: "#050505" },
-      { property: "og:title", content: "Aari Pranav — Cybersecurity Portfolio" },
-      { property: "og:description", content: "Cybersecurity postgraduate, ethical hacker and security researcher. Threat analysis, pentesting and AI-powered defense." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:title", content: "Aari Pranav — Cybersecurity Portfolio" },
-      { name: "twitter:description", content: "Cybersecurity postgraduate, ethical hacker and security researcher. Threat analysis, pentesting and AI-powered defense." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/58f53449-4686-4ed7-90fd-152c006314e8/id-preview-513b7924--99ac0296-1b83-4762-99b3-6b6c7049831d.lovable.app-1778603362577.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/58f53449-4686-4ed7-90fd-152c006314e8/id-preview-513b7924--99ac0296-1b83-4762-99b3-6b6c7049831d.lovable.app-1778603362577.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className="dark">
-      <head><HeadContent /></head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -106,7 +67,7 @@ function RootComponent() {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <>
       <AnimatePresence>
         {!booted && (
           <BootSequence
@@ -150,6 +111,6 @@ function RootComponent() {
           </span>
         </div>
       </footer>
-    </QueryClientProvider>
+    </>
   );
 }

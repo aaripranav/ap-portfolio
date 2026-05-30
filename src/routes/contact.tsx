@@ -4,12 +4,6 @@ import { useState } from "react";
 import { PageShell, SectionLabel } from "@/components/PageShell";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Aari Pranav" },
-      { name: "description", content: "Open an encrypted channel — let's collaborate on cybersecurity work." },
-    ],
-  }),
   component: Contact,
 });
 
