@@ -66,40 +66,68 @@
   --input: oklch(0.85 0.18 210 / 0.15);
   --ring: oklch(0.85 0.18 210);
 
-  --cyber-cyan: oklch(0.88 0.18 200);   /* #00F5FF */
-  --cyber-blue: oklch(0.55 0.27 260);   /* #0066FF */
+  --cyber-cyan: oklch(0.88 0.18 200); /* #00F5FF */
+  --cyber-blue: oklch(0.55 0.27 260); /* #0066FF */
   --cyber-purple: oklch(0.55 0.28 295); /* #7B2EFF */
-  --cyber-red: oklch(0.65 0.25 25);     /* #FF3B3B */
+  --cyber-red: oklch(0.65 0.25 25); /* #FF3B3B */
   --cyber-grid: oklch(0.85 0.18 210 / 0.08);
 }
 
-.dark { color-scheme: dark; }
+.dark {
+  color-scheme: dark;
+}
 
 @layer base {
-  html, body {
+  html,
+  body {
     background: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     scroll-behavior: smooth;
   }
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   body {
     overflow-x: hidden;
     cursor: none;
   }
-  ::selection { background: oklch(0.88 0.18 200 / 0.3); color: white; }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0.01em; }
+  ::selection {
+    background: oklch(0.88 0.18 200 / 0.3);
+    color: white;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
-  .font-mono { font-family: var(--font-mono); }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
 
-  .text-glow-cyan { text-shadow: 0 0 12px color-mix(in oklab, var(--cyber-cyan) 70%, transparent), 0 0 32px color-mix(in oklab, var(--cyber-cyan) 35%, transparent); }
-  .text-glow-purple { text-shadow: 0 0 14px color-mix(in oklab, var(--cyber-purple) 70%, transparent); }
+  .text-glow-cyan {
+    text-shadow:
+      0 0 12px color-mix(in oklab, var(--cyber-cyan) 70%, transparent),
+      0 0 32px color-mix(in oklab, var(--cyber-cyan) 35%, transparent);
+  }
+  .text-glow-purple {
+    text-shadow: 0 0 14px color-mix(in oklab, var(--cyber-purple) 70%, transparent);
+  }
 
   .glass {
-    background: linear-gradient(135deg, color-mix(in oklab, var(--cyber-cyan) 6%, transparent), color-mix(in oklab, var(--cyber-purple) 4%, transparent));
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--cyber-cyan) 6%, transparent),
+      color-mix(in oklab, var(--cyber-purple) 4%, transparent)
+    );
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     border: 1px solid color-mix(in oklab, var(--cyber-cyan) 22%, transparent);
@@ -109,7 +137,11 @@
   }
 
   .glass-strong {
-    background: linear-gradient(135deg, color-mix(in oklab, var(--cyber-cyan) 10%, transparent), color-mix(in oklab, var(--cyber-purple) 8%, transparent));
+    background: linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--cyber-cyan) 10%, transparent),
+      color-mix(in oklab, var(--cyber-purple) 8%, transparent)
+    );
     backdrop-filter: blur(20px) saturate(160%);
     border: 1px solid color-mix(in oklab, var(--cyber-cyan) 30%, transparent);
   }
@@ -131,14 +163,24 @@
 
   .scanlines::before {
     content: "";
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(0deg, transparent 0 2px, color-mix(in oklab, var(--cyber-cyan) 5%, transparent) 2px 3px);
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0 2px,
+      color-mix(in oklab, var(--cyber-cyan) 5%, transparent) 2px 3px
+    );
     pointer-events: none;
     mix-blend-mode: overlay;
   }
 
   .gradient-text {
-    background: linear-gradient(120deg, var(--cyber-cyan), var(--cyber-purple) 60%, var(--cyber-blue));
+    background: linear-gradient(
+      120deg,
+      var(--cyber-cyan),
+      var(--cyber-purple) 60%,
+      var(--cyber-blue)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -149,33 +191,71 @@
   }
 
   @keyframes scan-sweep {
-    0% { transform: translateY(-100%); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
   }
-  .animate-scan { animation: scan-sweep 6s linear infinite; }
+  .animate-scan {
+    animation: scan-sweep 6s linear infinite;
+  }
 
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.6; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
   }
-  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
 
   @keyframes float-y {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
-  .animate-float { animation: float-y 6s ease-in-out infinite; }
+  .animate-float {
+    animation: float-y 6s ease-in-out infinite;
+  }
 
   @keyframes blink-caret {
-    0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; }
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
   }
-  .animate-caret { animation: blink-caret 1s step-end infinite; }
+  .animate-caret {
+    animation: blink-caret 1s step-end infinite;
+  }
 
   .noise::after {
     content: "";
-    position: absolute; inset: 0;
+    position: absolute;
+    inset: 0;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
-    opacity: 0.04; pointer-events: none; mix-blend-mode: overlay;
+    opacity: 0.04;
+    pointer-events: none;
+    mix-blend-mode: overlay;
   }
 }

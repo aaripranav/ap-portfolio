@@ -26,7 +26,9 @@ export function Nav() {
             <span className="absolute -inset-0.5 rounded-md border border-cyber-cyan/50 animate-pulse-glow" />
           </div>
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-xs tracking-[0.3em] text-cyber-cyan">AARI.PRANAV</span>
+            <span className="font-display text-xs tracking-[0.3em] text-cyber-cyan">
+              AARI.PRANAV
+            </span>
             <span className="font-mono text-[10px] text-muted-foreground">/ secure_node_01</span>
           </div>
         </Link>
@@ -40,10 +42,16 @@ export function Nav() {
                 to={l.to}
                 className="relative px-3 py-1.5 rounded-full font-mono text-xs"
               >
-                <span className={`hidden md:inline mr-1 ${active ? "text-cyber-cyan" : "text-muted-foreground"}`}>
+                <span
+                  className={`hidden md:inline mr-1 ${active ? "text-cyber-cyan" : "text-muted-foreground"}`}
+                >
                   {l.code}/
                 </span>
-                <span className={active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}>
+                <span
+                  className={
+                    active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }
+                >
                   {l.label}
                 </span>
                 {active && (

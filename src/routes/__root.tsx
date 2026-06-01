@@ -7,6 +7,7 @@ import {
   useLocation,
 } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react";
 import { useEffect, useState } from "react";
 
 import { Nav } from "@/components/Nav";
@@ -23,7 +24,10 @@ function NotFoundComponent() {
         <p className="mt-3 text-sm text-muted-foreground">
           This node is unreachable. Re-route to base.
         </p>
-        <Link to="/" className="inline-block mt-6 px-5 py-2 rounded-full glass-strong text-sm font-mono hover:neon-border transition">
+        <Link
+          to="/"
+          className="inline-block mt-6 px-5 py-2 rounded-full glass-strong text-sm font-mono hover:neon-border transition"
+        >
           ← return_home
         </Link>
       </div>
@@ -41,9 +45,14 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <h1 className="text-2xl font-display">Unexpected breach</h1>
         <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
         <button
-          onClick={() => { router.invalidate(); reset(); }}
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
           className="mt-6 px-5 py-2 rounded-full glass-strong text-sm font-mono hover:neon-border"
-        >retry</button>
+        >
+          retry
+        </button>
       </div>
     </div>
   );
@@ -111,6 +120,7 @@ function RootComponent() {
           </span>
         </div>
       </footer>
+      <Analytics />
     </>
   );
 }

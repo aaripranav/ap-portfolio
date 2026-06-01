@@ -34,18 +34,28 @@ const timeline = [
     when: "Sept 2020 — 2023",
     role: "B.Com (Information System Management)",
     org: "SRM Institute of Science & Technology · Chennai, India",
-    points: [
-      "First Class with Distinction",
-      "DBMS, Java, Python, MIS, E-Business",
-    ],
+    points: ["First Class with Distinction", "DBMS, Java, Python, MIS, E-Business"],
     tag: "EDU",
   },
 ];
 
 const certs = [
-  { t: "Cyber Security Professional Plus (CSPP)", by: "Datamites & Skilllogic — Aug 2025", focus: "Ethical hacking, network & system security, vulnerability assessment, malware & wireless threats, cryptography, AI security, IR, cyber laws & ethics." },
-  { t: "TryHackMe — Active Learner", by: "Hands-on labs", focus: "Practical pentesting paths, web exploitation, blue-team exercises." },
-  { t: "Hack The Box — Operator", by: "Active Boxes", focus: "Real-world style machines and CTF problem solving." },
+  {
+    t: "Cyber Security Professional Plus (CSPP)",
+    by: "Datamites & Skilllogic — Aug 2025",
+    focus:
+      "Ethical hacking, network & system security, vulnerability assessment, malware & wireless threats, cryptography, AI security, IR, cyber laws & ethics.",
+  },
+  {
+    t: "TryHackMe — Active Learner",
+    by: "Hands-on labs",
+    focus: "Practical pentesting paths, web exploitation, blue-team exercises.",
+  },
+  {
+    t: "Hack The Box — Operator",
+    by: "Active Boxes",
+    focus: "Real-world style machines and CTF problem solving.",
+  },
 ];
 
 function Experience() {
@@ -59,8 +69,10 @@ function Experience() {
           {timeline.map((e, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
               className={`relative grid sm:grid-cols-2 gap-6 ${i % 2 ? "sm:[&>*:first-child]:order-2" : ""}`}
             >
               <div className={`pl-12 sm:pl-0 ${i % 2 ? "sm:pl-12" : "sm:text-right sm:pr-12"}`}>
@@ -73,14 +85,19 @@ function Experience() {
                   <div className="font-mono text-[10px] text-cyber-purple mb-2">[{e.tag}]</div>
                   <ul className="space-y-1.5 text-sm text-muted-foreground">
                     {e.points.map((p) => (
-                      <li key={p} className="flex gap-2"><span className="text-cyber-cyan">›</span>{p}</li>
+                      <li key={p} className="flex gap-2">
+                        <span className="text-cyber-cyan">›</span>
+                        {p}
+                      </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 top-1 w-3 h-3 rounded-full bg-cyber-cyan animate-pulse"
-                style={{ boxShadow: "0 0 14px var(--cyber-cyan)" }} />
+              <div
+                className="absolute left-4 sm:left-1/2 -translate-x-1/2 top-1 w-3 h-3 rounded-full bg-cyber-cyan animate-pulse"
+                style={{ boxShadow: "0 0 14px var(--cyber-cyan)" }}
+              />
             </motion.div>
           ))}
         </div>
@@ -96,9 +113,11 @@ function Experience() {
             <div className="absolute inset-12 rounded-full border border-cyber-cyan/20" />
             <div className="absolute inset-20 rounded-full border border-cyber-cyan/10" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-1/2 h-1/2 origin-center"
+              <div
+                className="w-1/2 h-1/2 origin-center"
                 style={{
-                  background: "conic-gradient(from 0deg, transparent 0deg, var(--cyber-cyan) 30deg, transparent 60deg)",
+                  background:
+                    "conic-gradient(from 0deg, transparent 0deg, var(--cyber-cyan) 30deg, transparent 60deg)",
                   borderRadius: "50%",
                   animation: "spin 4s linear infinite",
                   filter: "blur(2px)",
@@ -115,8 +134,10 @@ function Experience() {
             {certs.map((c, i) => (
               <motion.div
                 key={c.t}
-                initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -3 }}
                 className="glass rounded-xl p-5 flex gap-4 items-start hover:neon-border transition"
               >

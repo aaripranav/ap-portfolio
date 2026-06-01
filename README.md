@@ -87,6 +87,7 @@ src/
 ## 🔧 Configuration
 
 The project uses:
+
 - `vite.config.ts` - Vite configuration
 - `vercel.json` - Vercel deployment settings
 - `tsconfig.json` - TypeScript configuration

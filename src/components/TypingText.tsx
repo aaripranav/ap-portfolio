@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function TypingText({
-  phrases,
-  className = "",
-}: {
-  phrases: string[];
-  className?: string;
-}) {
+export function TypingText({ phrases, className = "" }: { phrases: string[]; className?: string }) {
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [del, setDel] = useState(false);
