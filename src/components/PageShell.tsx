@@ -8,9 +8,12 @@ export function PageShell({ children }: { children: ReactNode }) {
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       exit={{ opacity: 0, filter: "blur(12px)", y: -24 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative z-10 pt-28 pb-24 px-4 sm:px-8"
+      className="relative z-10 pt-28 pb-24 px-4 sm:px-8 min-h-[calc(100vh-7rem)]"
     >
-      <div className="mx-auto max-w-7xl">{children}</div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 cyber-grid-bg opacity-35 blur-sm" />
+      </div>
+      <div className="mx-auto max-w-7xl relative">{children}</div>
     </motion.main>
   );
 }

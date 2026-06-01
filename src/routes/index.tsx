@@ -71,19 +71,16 @@ function Home() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.9 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}
             className="mt-6 max-w-xl text-muted-foreground leading-relaxed"
           >
-            MSc Cyber Security Management at Ravensbourne University London. Building threat-aware
-            systems, dissecting real-world breaches and writing tooling that keeps networks honest.
+            MSc Cyber Security Management at Ravensbourne University London. I combine
+            academic research with hands-on lab work, building threat-aware systems,
+            dissecting real-world breaches and writing tooling that keeps networks honest.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.05 }}
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.05 }}
             className="mt-8 flex flex-wrap gap-3"
           >
             <Link
@@ -100,7 +97,8 @@ function Home() {
               ./contact_me
             </Link>
             <a
-              href="mailto:aaripranav@gmail.com?subject=Resume%20request"
+              href="/resume.pdf"
+              download
               className="px-6 py-3 rounded-full glass font-mono text-sm hover:neon-border transition"
             >
               download_resume.pdf
@@ -109,17 +107,13 @@ function Home() {
 
           {/* Stats */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.3 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}
             className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-3"
           >
             {stats.map((s) => (
               <div key={s.v} className="glass rounded-xl p-4">
                 <div className="font-display text-2xl text-cyber-cyan text-glow-cyan">{s.k}</div>
-                <div className="font-mono text-[11px] text-muted-foreground mt-1 uppercase tracking-wider">
-                  {s.v}
-                </div>
+                <div className="font-mono text-[11px] text-muted-foreground mt-1 uppercase tracking-wider">{s.v}</div>
               </div>
             ))}
           </motion.div>
@@ -127,10 +121,7 @@ function Home() {
       </section>
 
       {/* Marquee skill rail */}
-      <section
-        aria-hidden
-        className="relative mt-20 overflow-hidden border-y border-cyber-cyan/10 py-4"
-      >
+      <section aria-hidden className="relative mt-20 overflow-hidden border-y border-cyber-cyan/10 py-4">
         <motion.div
           className="flex gap-12 whitespace-nowrap font-mono text-sm text-muted-foreground"
           animate={{ x: ["0%", "-50%"] }}
@@ -139,24 +130,12 @@ function Home() {
           {Array.from({ length: 2 }).map((_, k) => (
             <div key={k} className="flex gap-12">
               {[
-                "WIRESHARK",
-                "BURP SUITE",
-                "METASPLOIT",
-                "NESSUS",
-                "KALI LINUX",
-                "PYTHON",
-                "OWASP",
-                "NMAP",
-                "JOHN THE RIPPER",
-                "INCIDENT RESPONSE",
-                "RISK MGMT",
-                "AI SECURITY",
-                "SOC OPS",
-                "NETWORK FORENSICS",
+                "WIRESHARK","BURP SUITE","METASPLOIT","NESSUS","KALI LINUX","PYTHON",
+                "OWASP","NMAP","JOHN THE RIPPER","INCIDENT RESPONSE","RISK MGMT",
+                "AI SECURITY","SOC OPS","NETWORK FORENSICS",
               ].map((t) => (
                 <span key={t} className="flex items-center gap-3">
-                  <span className="text-cyber-cyan">◆</span>
-                  {t}
+                  <span className="text-cyber-cyan">◆</span>{t}
                 </span>
               ))}
             </div>

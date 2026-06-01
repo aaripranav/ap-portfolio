@@ -9,9 +9,9 @@ export const Route = createFileRoute("/contact")({
 
 const socials = [
   { t: "Email", v: "aaripranav@gmail.com", href: "mailto:aaripranav@gmail.com" },
-  { t: "LinkedIn", v: "in/aaripranav", href: "https://linkedin.com" },
-  { t: "GitHub", v: "@aaripranav", href: "https://github.com" },
-  { t: "X / Twitter", v: "@aaripranav", href: "https://x.com" },
+  { t: "LinkedIn", v: "linkedin.com/in/aaripranav", href: "https://linkedin.com/in/aaripranav" },
+  { t: "GitHub", v: "github.com/aaripranav", href: "https://github.com/aaripranav" },
+  { t: "X / Twitter", v: "@aaripranav", href: "https://x.com/aaripranav" },
 ];
 
 function Contact() {
@@ -24,26 +24,22 @@ function Contact() {
 
       <div className="grid lg:grid-cols-12 gap-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           className="lg:col-span-7"
         >
           <h1 className="font-display text-4xl sm:text-5xl font-black">
             Let's <span className="gradient-text">talk</span> security.
           </h1>
           <p className="text-muted-foreground mt-4 max-w-lg">
-            Internships, research collabs, SOC openings or just nerding out about packets — drop a
-            line. All transmissions handled with care.
+            Internships, research collabs, SOC openings or just nerding out about
+            packets — drop a line. All transmissions handled with care.
           </p>
 
           <form
             onSubmit={(e) => {
               e.preventDefault();
               setSending(true);
-              setTimeout(() => {
-                setSending(false);
-                setSent(true);
-              }, 1500);
+              setTimeout(() => { setSending(false); setSent(true); }, 1500);
             }}
             className="mt-8 glass rounded-2xl p-6 space-y-4"
           >
@@ -70,9 +66,7 @@ function Contact() {
             ))}
 
             <div>
-              <label className="font-mono text-[10px] text-muted-foreground tracking-wider">
-                payload
-              </label>
+              <label className="font-mono text-[10px] text-muted-foreground tracking-wider">payload</label>
               <textarea
                 required
                 rows={5}
@@ -82,8 +76,7 @@ function Contact() {
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
               disabled={sending || sent}
               className="relative w-full py-3 rounded-full font-mono text-sm font-semibold bg-cyber-cyan text-background neon-border overflow-hidden disabled:opacity-70"
             >
@@ -93,9 +86,7 @@ function Contact() {
         </motion.div>
 
         <motion.aside
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1 }}
+          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}
           className="lg:col-span-5 space-y-4"
         >
           <div className="glass rounded-2xl p-6 relative overflow-hidden">
@@ -106,8 +97,7 @@ function Contact() {
                 <li key={s.t}>
                   <a
                     href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
+                    target="_blank" rel="noreferrer"
                     className="flex items-center justify-between group p-3 rounded-xl glass-strong hover:neon-border transition"
                     data-cursor="hover"
                   >
@@ -131,11 +121,8 @@ function Contact() {
             <div className="mt-4 relative aspect-[4/2] rounded-lg overflow-hidden bg-cyber-cyan/5 border border-cyber-cyan/20">
               <div className="absolute inset-0 cyber-grid-bg opacity-60" />
               {[
-                { x: "20%", y: "35%" },
-                { x: "55%", y: "60%" },
-                { x: "75%", y: "30%" },
-                { x: "40%", y: "70%" },
-                { x: "85%", y: "55%" },
+                { x: "20%", y: "35%" }, { x: "55%", y: "60%" }, { x: "75%", y: "30%" },
+                { x: "40%", y: "70%" }, { x: "85%", y: "55%" },
               ].map((n, i) => (
                 <span
                   key={i}

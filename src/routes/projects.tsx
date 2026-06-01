@@ -69,10 +69,7 @@ function TiltCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
     x.set(e.clientX - r.left - r.width / 2);
     y.set(e.clientY - r.top - r.height / 2);
   };
-  const reset = () => {
-    x.set(0);
-    y.set(0);
-  };
+  const reset = () => { x.set(0); y.set(0); };
 
   return (
     <motion.div
@@ -93,31 +90,31 @@ function TiltCard({ p, i }: { p: (typeof projects)[number]; i: number }) {
       <div className="relative z-10">
         <div className="flex items-center justify-between font-mono text-[11px] mb-4">
           <span className="text-cyber-cyan">{p.code}</span>
-          <span className="px-2 py-0.5 rounded-full glass-strong text-muted-foreground">
-            {p.tag}
-          </span>
+          <span className="px-2 py-0.5 rounded-full glass-strong text-muted-foreground">{p.tag}</span>
         </div>
         <h3 className="font-display text-xl leading-snug">{p.title}</h3>
         <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
 
         <div className="mt-5 flex flex-wrap gap-1.5">
           {p.tech.map((t) => (
-            <span
-              key={t}
-              className="font-mono text-[10px] px-2 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan"
-            >
+            <span key={t} className="font-mono text-[10px] px-2 py-1 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan">
               {t}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 flex gap-2 font-mono text-xs">
-          <button className="px-3 py-1.5 rounded-full glass-strong hover:bg-cyber-cyan/20 transition">
-            ↗ live_demo
-          </button>
-          <button className="px-3 py-1.5 rounded-full glass-strong hover:bg-cyber-cyan/20 transition">
-            ⌘ source_code
-          </button>
+        <div className="mt-6 flex flex-wrap gap-2 font-mono text-xs">
+          <span className="px-3 py-1.5 rounded-full glass-strong text-muted-foreground">
+            details available on request
+          </span>
+          <a
+            href="https://github.com/aaripranav"
+            target="_blank"
+            rel="noreferrer"
+            className="px-3 py-1.5 rounded-full glass-strong text-cyber-cyan hover:bg-cyber-cyan/10 transition"
+          >
+            view portfolio repo
+          </a>
         </div>
 
         {/* corner brackets */}
@@ -136,15 +133,14 @@ function Projects() {
       <SectionLabel index="03" title="operations log / projects" />
 
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
         className="font-display text-4xl sm:text-5xl font-black mb-4"
       >
         Selected <span className="gradient-text">missions</span>.
       </motion.h1>
       <p className="text-muted-foreground max-w-xl mb-10">
-        Hands-on cybersecurity work — from breach analysis and offensive labs to risk frameworks and
-        AI-assisted detection.
+        Hands-on cybersecurity work — from breach analysis and offensive labs to
+        risk frameworks and AI-assisted detection.
       </p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

@@ -47,9 +47,45 @@ function Rings() {
   );
 }
 
+function Orbiters() {
+  const orbitRef = useRef<THREE.Group>(null);
+  useFrame((_, dt) => {
+    if (orbitRef.current) {
+      orbitRef.current.rotation.y += dt * 0.16;
+      orbitRef.current.rotation.x += dt * 0.04;
+    }
+  });
+
+  return (
+    <group ref={orbitRef}>
+      {[0, 1, 2].map((i) => (
+        <mesh
+          key={i}
+          position={[
+            Math.cos((i / 3) * Math.PI * 2) * 2.55,
+            Math.sin((i / 3) * Math.PI * 2) * 0.6,
+            Math.sin((i / 3) * Math.PI * 2) * 0.9,
+          ]}
+        >
+          <sphereGeometry args={[0.08, 14, 14]} />
+          <meshStandardMaterial
+            color={i === 1 ? "#00F5FF" : "#7B2EFF"}
+            emissive={i === 1 ? "#00F5FF" : "#7B2EFF"}
+            emissiveIntensity={0.9}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
 export function HeroScene() {
   return (
-    <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 6], fov: 45 }} className="!absolute inset-0">
+    <Canvas
+      dpr={[1, 1.5]}
+      camera={{ position: [0, 0, 6], fov: 45 }}
+      className="!absolute inset-0"
+    >
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
         <pointLight position={[5, 5, 5]} intensity={1.2} color="#00F5FF" />
@@ -58,6 +94,7 @@ export function HeroScene() {
           <Core />
         </Float>
         <Rings />
+        <Orbiters />
         <Stars radius={50} depth={30} count={1500} factor={2} fade speed={0.5} />
       </Suspense>
     </Canvas>

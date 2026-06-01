@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home", code: "00" },
@@ -26,14 +27,12 @@ export function Nav() {
             <span className="absolute -inset-0.5 rounded-md border border-cyber-cyan/50 animate-pulse-glow" />
           </div>
           <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-xs tracking-[0.3em] text-cyber-cyan">
-              AARI.PRANAV
-            </span>
+            <span className="font-display text-xs tracking-[0.3em] text-cyber-cyan">AARI.PRANAV</span>
             <span className="font-mono text-[10px] text-muted-foreground">/ secure_node_01</span>
           </div>
         </Link>
 
-        <nav className="flex items-center gap-1">
+        <nav aria-label="Primary navigation" className="flex items-center gap-1">
           {links.map((l) => {
             const active = loc.pathname === l.to;
             return (
@@ -42,16 +41,10 @@ export function Nav() {
                 to={l.to}
                 className="relative px-3 py-1.5 rounded-full font-mono text-xs"
               >
-                <span
-                  className={`hidden md:inline mr-1 ${active ? "text-cyber-cyan" : "text-muted-foreground"}`}
-                >
+                <span className={`hidden md:inline mr-1 ${active ? "text-cyber-cyan" : "text-muted-foreground"}`}>
                   {l.code}/
                 </span>
-                <span
-                  className={
-                    active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                  }
-                >
+                <span className={active ? "text-foreground" : "text-muted-foreground hover:text-foreground"}>
                   {l.label}
                 </span>
                 {active && (
@@ -66,9 +59,20 @@ export function Nav() {
           })}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-2 font-mono text-[10px] text-muted-foreground">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span>SYSTEM ONLINE</span>
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="https://github.com/aaripranav/ap-portfolio"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-cyber-cyan/20 bg-cyber-cyan/5 px-3 py-1.5 text-[10px] font-mono text-muted-foreground transition hover:bg-cyber-cyan/12 hover:text-foreground"
+          >
+            <Github size={14} className="text-cyber-cyan" />
+            <span>github</span>
+          </a>
+          <div className="flex items-center gap-2 font-mono text-[10px] text-muted-foreground">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>SYSTEM ONLINE</span>
+          </div>
         </div>
       </div>
     </motion.header>

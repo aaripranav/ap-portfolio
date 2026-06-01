@@ -34,8 +34,7 @@ function About() {
       <div className="grid lg:grid-cols-12 gap-8">
         {/* Identity card */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
           className="lg:col-span-5 glass rounded-2xl p-6 relative overflow-hidden"
         >
           <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-cyber-cyan/20 blur-3xl" />
@@ -46,15 +45,9 @@ function About() {
               <span className="absolute -inset-1 rounded-xl border border-cyber-cyan/40 animate-pulse-glow" />
             </div>
             <div>
-              <h2 className="font-display text-2xl">
-                Aari Pranav
-                <br />
-                Arunachalam Prabakaran
-              </h2>
+              <h2 className="font-display text-2xl">Aari Pranav<br/>Arunachalam Prabakaran</h2>
               <p className="font-mono text-xs text-cyber-cyan mt-1">CYBER_SECURITY_OPERATOR</p>
-              <p className="font-mono text-xs text-muted-foreground">
-                London, UK · +44 7721 011169
-              </p>
+              <p className="font-mono text-xs text-muted-foreground">London, UK · +44 7721 011169</p>
             </div>
           </div>
 
@@ -77,32 +70,30 @@ function About() {
 
         {/* Bio */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1 }}
+          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }}
           className="lg:col-span-7 space-y-4"
         >
           <div className="glass rounded-2xl p-6">
             <h3 className="font-display text-xl mb-2 text-cyber-cyan">/intro</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Cybersecurity postgraduate with hands-on experience in network operations, system
-              troubleshooting and security tooling. Strong foundation in threat analysis, incident
-              response and risk management — combined with practical experience supporting secure IT
-              environments.
+              Cybersecurity postgraduate with hands-on experience in network operations,
+              system troubleshooting and security tooling. Strong foundation in threat
+              analysis, incident response and risk management — combined with practical
+              experience supporting secure IT environments, SOC workflows and cloud controls.
             </p>
           </div>
           <div className="glass rounded-2xl p-6">
             <h3 className="font-display text-xl mb-2 text-cyber-cyan">/objective</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Build a career across SOC operations, vulnerability research and AI-assisted defense —
-              turning curiosity into methodical, repeatable security workflows.
+              Build a career across SOC operations, vulnerability research and AI-assisted
+              defense — turning curiosity into methodical, repeatable security workflows.
             </p>
           </div>
           <div className="glass rounded-2xl p-6">
             <h3 className="font-display text-xl mb-2 text-cyber-cyan">/mindset</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Methodical problem solving, attention to detail and constant learning. Every alert is
-              a story waiting to be reconstructed.
+              Methodical problem solving, attention to detail and constant learning. Every
+              alert is a story waiting to be reconstructed.
             </p>
           </div>
         </motion.div>
@@ -115,10 +106,8 @@ function About() {
           {skills.map((s, i) => (
             <motion.div
               key={s.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.05 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05 }} viewport={{ once: true }}
               className="glass rounded-xl p-5"
             >
               <div className="flex justify-between font-mono text-xs mb-2">
@@ -127,10 +116,8 @@ function About() {
               </div>
               <div className="h-1.5 rounded-full bg-cyber-cyan/10 overflow-hidden">
                 <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${s.v}%` }}
-                  transition={{ duration: 1.2, ease: "easeOut" }}
-                  viewport={{ once: true }}
+                  initial={{ width: 0 }} whileInView={{ width: `${s.v}%` }}
+                  transition={{ duration: 1.2, ease: "easeOut" }} viewport={{ once: true }}
                   className="h-full bg-gradient-to-r from-cyber-cyan to-cyber-purple"
                   style={{ boxShadow: "0 0 10px var(--cyber-cyan)" }}
                 />
@@ -147,10 +134,8 @@ function About() {
           {domains.map((d, i) => (
             <motion.div
               key={d.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.04 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.04 }} viewport={{ once: true }}
               whileHover={{ y: -4 }}
               className="glass rounded-xl p-5 hover:neon-border transition"
             >
