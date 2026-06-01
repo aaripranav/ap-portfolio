@@ -27,11 +27,13 @@ export function BootSequence({ onDone }: { onDone: () => void }) {
           ┌─ secure_terminal ─────────────────────────────┐
         </div>
         {lines.slice(0, step).map((l, i) => (
-          <div key={i} className="opacity-90">{l}</div>
+          <div key={i} className="opacity-90">
+            {l}
+          </div>
         ))}
         {step < lines.length && (
           <div className="text-cyber-cyan">
-            {lines[step]?.slice(0, Math.floor(((Date.now() / 30) % lines[step].length)))}
+            {lines[step]?.slice(0, Math.floor((Date.now() / 30) % lines[step].length))}
             <span className="animate-caret">▍</span>
           </div>
         )}

@@ -73,9 +73,21 @@ function Spinner({ shape }: { shape: "ico" | "octa" | "knot" }) {
   );
   return (
     <Float floatIntensity={1} rotationIntensity={0.5}>
-      {shape === "ico" && <Icosahedron ref={ref} args={[1, 0]}>{mat}</Icosahedron>}
-      {shape === "octa" && <Octahedron ref={ref} args={[1, 0]}>{mat}</Octahedron>}
-      {shape === "knot" && <TorusKnot ref={ref} args={[0.8, 0.22, 80, 16]}>{mat}</TorusKnot>}
+      {shape === "ico" && (
+        <Icosahedron ref={ref} args={[1, 0]}>
+          {mat}
+        </Icosahedron>
+      )}
+      {shape === "octa" && (
+        <Octahedron ref={ref} args={[1, 0]}>
+          {mat}
+        </Octahedron>
+      )}
+      {shape === "knot" && (
+        <TorusKnot ref={ref} args={[0.8, 0.22, 80, 16]}>
+          {mat}
+        </TorusKnot>
+      )}
     </Float>
   );
 }
@@ -170,9 +182,7 @@ export default function Skills() {
                 <div className="font-mono text-[10px] tracking-widest text-muted-foreground mb-0.5">
                   PILLAR {pillar.num}
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl gradient-text">
-                  {pillar.title}
-                </h2>
+                <h2 className="font-display text-2xl sm:text-3xl gradient-text">{pillar.title}</h2>
               </div>
               <div className="flex-1 h-px bg-gradient-to-r from-cyber-cyan/30 to-transparent ml-4" />
             </div>
@@ -193,9 +203,7 @@ export default function Skills() {
                     className="absolute -top-20 -right-20 w-52 h-52 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition duration-700"
                     style={{
                       background:
-                        pillar.color === "cyan"
-                          ? "var(--cyber-cyan)"
-                          : "var(--cyber-purple)",
+                        pillar.color === "cyan" ? "var(--cyber-cyan)" : "var(--cyber-purple)",
                     }}
                   />
                   <div className="relative z-10">
@@ -213,9 +221,7 @@ export default function Skills() {
                           className="font-mono text-xs font-bold"
                           style={{
                             color:
-                              pillar.color === "cyan"
-                                ? "var(--cyber-cyan)"
-                                : "var(--cyber-purple)",
+                              pillar.color === "cyan" ? "var(--cyber-cyan)" : "var(--cyber-purple)",
                           }}
                         >
                           {pillar.num}.{mi + 1}
@@ -224,9 +230,7 @@ export default function Skills() {
                       <Scale size={14} className="text-muted-foreground opacity-40" />
                     </div>
                     <h3 className="font-display text-lg mb-2">{mod.name}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {mod.desc}
-                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{mod.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {mod.tags.map((tag) => (
                         <span
@@ -238,9 +242,7 @@ export default function Skills() {
                                 ? "color-mix(in oklab, var(--cyber-cyan) 25%, transparent)"
                                 : "color-mix(in oklab, var(--cyber-purple) 25%, transparent)",
                             color:
-                              pillar.color === "cyan"
-                                ? "var(--cyber-cyan)"
-                                : "var(--cyber-purple)",
+                              pillar.color === "cyan" ? "var(--cyber-cyan)" : "var(--cyber-purple)",
                             background:
                               pillar.color === "cyan"
                                 ? "color-mix(in oklab, var(--cyber-cyan) 8%, transparent)"

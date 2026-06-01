@@ -49,11 +49,7 @@ function Rings() {
 
 export function HeroScene() {
   return (
-    <Canvas
-      dpr={[1, 1.5]}
-      camera={{ position: [0, 0, 6], fov: 45 }}
-      className="!absolute inset-0"
-    >
+    <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 6], fov: 45 }} className="!absolute inset-0">
       <Suspense fallback={null}>
         <ambientLight intensity={0.4} />
         <pointLight position={[5, 5, 5]} intensity={1.2} color="#00F5FF" />
