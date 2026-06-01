@@ -17,6 +17,35 @@ const socials = [
 function Contact() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send email");
+      }
+
+      setSent(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <PageShell>
@@ -36,11 +65,7 @@ function Contact() {
           </p>
 
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSending(true);
-              setTimeout(() => { setSending(false); setSent(true); }, 1500);
-            }}
+            onSubmit={handleSubmit}
             className="mt-8 glass rounded-2xl p-6 space-y-4"
           >
             <div className="font-mono text-[11px] text-cyber-cyan flex items-center gap-2">
@@ -48,22 +73,39 @@ function Contact() {
               CHANNEL · TLS 1.3 · END-TO-END
             </div>
 
-            {[
-              { l: "operator_name", t: "text", p: "Your name" },
-              { l: "return_address", t: "email", p: "you@domain.com" },
-            ].map((f) => (
-              <div key={f.l} className="group">
-                <label className="font-mono text-[10px] text-muted-foreground tracking-wider">
-                  {f.l}
-                </label>
-                <input
-                  required
-                  type={f.t}
-                  placeholder={f.p}
-                  className="mt-1 w-full bg-transparent border-b border-cyber-cyan/30 focus:border-cyber-cyan outline-none py-2 font-mono text-sm transition focus:[box-shadow:0_4px_24px_-8px_var(--cyber-cyan)]"
-                />
+            {error && (
+              <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono">
+                ⚠ {error}
               </div>
-            ))}
+            )}
+
+            <div className="group">
+              <label className="font-mono text-[10px] text-muted-foreground tracking-wider">
+                operator_name
+              </label>
+              <input
+                required
+                type="text"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="mt-1 w-full bg-transparent border-b border-cyber-cyan/30 focus:border-cyber-cyan outline-none py-2 font-mono text-sm transition focus:[box-shadow:0_4px_24px_-8px_var(--cyber-cyan)]"
+              />
+            </div>
+
+            <div className="group">
+              <label className="font-mono text-[10px] text-muted-foreground tracking-wider">
+                return_address
+              </label>
+              <input
+                required
+                type="email"
+                placeholder="you@domain.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="mt-1 w-full bg-transparent border-b border-cyber-cyan/30 focus:border-cyber-cyan outline-none py-2 font-mono text-sm transition focus:[box-shadow:0_4px_24px_-8px_var(--cyber-cyan)]"
+              />
+            </div>
 
             <div>
               <label className="font-mono text-[10px] text-muted-foreground tracking-wider">payload</label>
@@ -71,6 +113,8 @@ function Contact() {
                 required
                 rows={5}
                 placeholder="// type your message here…"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="mt-1 w-full bg-transparent border border-cyber-cyan/30 rounded-lg focus:border-cyber-cyan outline-none p-3 font-mono text-sm resize-none transition"
               />
             </div>
